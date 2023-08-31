@@ -10,7 +10,7 @@ module.exports = {
       accounts: [process.env.PRIVATE_KEY],
     },
     goerli: {
-      url: 'https://ethereum-goerli.publicnode.com',
+      url: 'https://rpc.ankr.com/eth_goerli	',
       accounts: [process.env.PRIVATE_KEY],
     },
   }
