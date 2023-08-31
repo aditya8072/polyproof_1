@@ -1,16 +1,56 @@
-# ERC20 Goerli to Mumbai Bridge Using fxPortal
-This project demonstrates how to use the fxPortal contracts to transfer ERC20 tokens from Goerli to Mumbai.
+# MetaToken NFT Project
 
-### Steps for Bridging
+A simple Solidity smart contract for minting and transferring NFTs. This project includes a contract called MetaToken for creating NFTs and a set of scripts for deploying, minting, and transferring NFTs between different Ethereum networks.
 
-1. Run npm i to install dependencies
-2. Put your private key in the .env.examples file and rename to .env when finished
-3. Run npx hardhat run scripts/deploy.js --network goerli to deploy ERC20 contract
-4. Paste the newly deployed contract address in the tokenAddress variable for the other scripts
-5. Make sure to fill in your public key
-6. Run npx hardhat run scripts/mint.js --network goerli to mint tokens to your wallet
-7. Run npx hardhat run scripts/approveDeposit.js --network goerli to approve and deposit your tokens to polygon
-8. Wait 20-30ish minutes for tokens to show on polygon account
-9. Use polyscan.com to check your account for the tokens. Once they arrive, you can click on the transaction to get the contract address for polygon.
-10. Use this polygon contract address for your getBalance script's tokenAddress
-11. Run npx hardhat run scripts/getBalance.js --network mumbai to see the new polygon balance
+
+### Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- Node.js and npm installed on your machine.
+- Hardhat for Ethereum development (you can install it globally with `npm install -g hardhat`).
+- An Ethereum wallet with a private key (for deployment and transactions).
+- The contract address of your deployed MetaToken contract.
+
+## Usage
+
+### Deploying the Contract
+
+1. Set your private key and contract details in a `.env` file:
+
+   ```env
+   PRIVATE_KEY=your_private_key_here
+   NETWORK_URL=https://rpc.ankr.com/eth_goerli
+   ```
+
+2. Deploy the MetaToken contract to the Ethereum network:
+
+   ```bash
+   npx hardhat run scripts/deploy.js
+   ```
+
+### Minting NFTs
+
+To mint NFTs, you can use the following script:
+
+```bash
+npx hardhat run scripts/mint.js
+```
+
+### Transferring NFTs
+
+To transfer NFTs to the Ethereum FxChain network, use the following script:
+
+```bash
+npx hardhat run scripts/transfer.js
+```
+
+## Configuration
+
+- `MetaToken.sol`: The smart contract for minting NFTs.
+- `scripts/`: Contains JavaScript scripts for deployment and interactions with the contract.
+- `fxRootContractABI.json`: ABI for the Ethereum FxChain FXRoot contract.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
